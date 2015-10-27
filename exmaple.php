@@ -69,6 +69,16 @@ function themeXXXX_custom_options() {
 		),
 	);
 
-	new Cherry_Child_Custom_Options( $options );
+	$sections = array(
+		'custom-subsection' => array(
+			'name'     => __( 'Custom Subsection', 'themeXXXX' ),
+			'icon'     => 'dashicons dashicons-arrow-right',
+			'parent'   => 'navigation-section',
+			'priority' => 10,
+			'filter'   => 'cherry_custom_subsection',
+		),
+	);
+
+	new Cherry_Child_Custom_Options( $options, $sections );
 
 }

@@ -5,6 +5,7 @@
  * @package   Cherry_Child_Custom_Options
  * @author    Cherry Team
  * @license   GPL-2.0+
+ * @version   1.1.0
  */
 
 // If this file is called directly, abort.
@@ -96,11 +97,22 @@ if ( ! class_exists( 'Cherry_Child_Custom_Options' ) ) {
 			$this->prepared_sections = $sections;
 
 			foreach ( $sections as $key => $data ) {
-				$this->sections = array_merge( $this->sections, array( $key => $data['filter'] ) );
+				$this->sections = array_merge( $this->sections, array( $key => $this->get_section_filter( $key ) ) );
 			}
 
 			add_filter( 'cherry_defaults_settings', array( $this, 'process_sections' ) );
 
+		}
+
+		/**
+		 * Get filter name by passed section ID
+		 *
+		 * @since  1.1.0
+		 * @param  string $[name] [<description>]
+		 * @return [type] [description]
+		 */
+		public function get_section_filter( $section ) {
+			return sprintf( 'cherry_section_' . esc_attr( $section ) );
 		}
 
 		/**
@@ -116,7 +128,7 @@ if ( ! class_exists( 'Cherry_Child_Custom_Options' ) ) {
 					'icon'         => isset( $data['icon'] ) ? $data['icon'] : false,
 					'parent'       => isset( $data['parent'] ) ? $data['parent'] : false,
 					'priority'     => isset( $data['priority'] ) ? $data['priority'] : 1,
-					'options-list' => apply_filters( $data['filter'], array() ),
+					'options-list' => apply_filters( $this->get_section_filter( $id ), array() ),
 				);
 			}
 

@@ -75,7 +75,6 @@ function themeXXXX_custom_options() {
 			'icon'     => 'dashicons dashicons-arrow-right',
 			'parent'   => 'navigation-section',
 			'priority' => 10,
-			'filter'   => 'cherry_custom_subsection',
 		),
 	);
 

@@ -67,7 +67,7 @@ if ( ! class_exists( 'Cherry_Child_Custom_Options' ) ) {
 					'header-section'         => 'cherry_header_options_list',
 					'logo-subsection'        => 'cherry_logo_options_list',
 					'page-section'           => 'cherry_page_options_list',
-					'footer-logo-subsection' => 'cherry_footer_options_list',
+					'footer-section'         => 'cherry_footer_options_list',
 					'footer-logo-subsection' => 'cherry_footer_logo_options_list',
 					'typography-section'     => 'cherry_typography_options_list',
 					'optimization-section'   => 'cherry_optimization_options_list',
